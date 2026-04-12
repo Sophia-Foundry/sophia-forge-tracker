@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.8.3 — 2026-04-12
+
+### Added
+- String tables plugin fully migrated — entries, translations, bulk linking, key generation, filtering, and pagination
+- Data tables plugin fully migrated — column management, mapping workflows, and entity linking
+- All plugins now migrated to electron — centralized registration file removed as it's no longer needed
+- New e2e tests for plugin registration, plugin manifests, and core backend functionality
+
+### Changed
+- Category templates plugin refactored to complete partial migration
+- Electron upgraded from v35 to v41
+- Expanded and fixed e2e test coverage across all plugins
+
+### Removed
+- Legacy command registry and field status hooks
+- Standalone string table entry picker component
+
 ## 0.8.2 — 2026-04-11
 
 ### Added
