@@ -32,3 +32,7 @@ Join our [Discord](https://discord.gg/r9W7yXk45y) community.
 - One issue per report — don't combine multiple bugs or requests
 - Use clear, descriptive titles
 - Avoid posting sensitive information (API keys, credentials, etc.)
+
+## Support Development
+
+If you'd like to support Sophia Forge's development, you can contribute on [Ko-fi](https://ko-fi.com/sakushimei).
