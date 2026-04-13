@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.8.4 — 2026-04-12
+
+**First public alpha — the first ever release of Sophia Forge.**
+
+### Added
+- Auto-update preferences (Settings → Editor): toggle automatic checks and set a custom interval. Changes apply without restart — installed versions will receive new releases automatically from here on.
+- Plugins can declare system requirements — missing dependencies are surfaced in Settings → Plugins with the toggle disabled and an "Unavailable — required system dependency not detected" notice.
+- Plugins can ship as opt-in; new projects start with the standard set and optional plugins must be turned on explicitly.
+- New app icon set across Windows, macOS, and Linux with full-resolution artwork.
+- Multi-language Windows installer.
+- About dialog now displays the real installed app version.
+- Third-party licenses bundled (EN/PT-BR).
+- Friendlier startup screen: "Getting the anvil ready…" message with a larger title and live boot step underneath.
+
+### Changed
+- Only a single instance of Sophia Forge can run at a time; launching while it's already open focuses the existing window instead of starting a second copy.
+
+### Fixed
+- Packaged builds now locate the backend, preload script, and renderer assets reliably, fixing startup failures in installed versions.
+- Backend now runs as an Electron utility process, improving stability and clean shutdown.
+
+### Internal
+- Large refactor of the end-to-end test suite and expanded unit test coverage across renderer components and plugin APIs.
+
 ## 0.8.3 — 2026-04-12
 
 ### Added
