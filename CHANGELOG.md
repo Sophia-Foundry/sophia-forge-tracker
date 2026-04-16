@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.8.5 — 2026-04-16
+
+### Added
+- Template export and import. You can now bundle selected entities into a reusable ZIP and merge them back into another project. The export dialog lets you pick which entities to include, name the template, and toggle extras per entity type — for example, include relationships between the selected characters, include flags alongside acts, and choose whether to embed all, only referenced, or no category templates. Co-owned children travel automatically (recipes follow their items, beats follow their acts). The import dialog detects per-entity conflicts and lets you resolve each one individually or apply the same choice to all: overwrite the local copy, keep the local copy, or import as a fresh copy with a new ID. You can also pick an ID strategy up front (preserve original IDs or generate new ones). After import, a warning appears if any imported data belongs to plugins that are currently disabled.
+- Drag-to-resize sidebar width (persists across sessions), with a Reset Sidebar Width action in the sidebar menu.
+- Ellipsis menu on sidebar sections with entries for Plugin Settings, Disable Plugin (with a confirmation dialog), Help, Collapse All / Expand All, Collapse All Others, Collapse All Sub-sections, and Manage Plugins.
+
+### Fixed
+- External edits inside a project's `.sophia` folder are again picked up as live updates — the dotfile ignore filter was incorrectly excluding the folder itself.
+- With multiple projects open, entity changes in one project no longer refresh data shown for another project.
+- Rename validation messages in the file tree are now localized instead of hardcoded English.
+- The category templates filter bar in list views now only lists templates scoped to the current entity type.
+- Live data updates reconnect automatically when the backend restarts on a new port.
+
 ## 0.8.4 — 2026-04-12
 
 **First public alpha — the first ever release of Sophia Forge.**
