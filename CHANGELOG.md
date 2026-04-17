@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.8.6 — 2026-04-17
+
+### Added
+- **Theme system.** Ten built-in themes replace the hardcoded dark emerald look: Midnight Blue, Amethyst, Golden Hour, Neutral Gray, Light Emerald, Blue-Orange (dark), Blue-Orange (light), High Contrast (dark), and High Contrast (light). The two Blue-Orange themes are designed for color-vision accessibility (deuteranopia, protanopia, tritanopia). Light mode is now a first-class option. All colors cross-fade smoothly when switching themes. A new Appearance section in App Settings lets you pick your theme; project-level "system theme" palettes also appear in the list with an option to override them.
+- **Color Palettes plugin.** Create and manage named color palettes with free-form or system-theme types. System-theme palettes define fixed named slots that map to the app's UI surfaces. Regular palettes support adding, removing, and reordering colors. Any palette can be opened in a standalone floating reference window that persists its size and position across sessions.
+- **Audio Ambience plugin.** Manage ambient audio clips with support for looping/non-looping filtering, audio file uploads (MP3, WAV, OGG, WebM), and per-project file storage. Integrates with entity linking and production tracking.
+- **Fonts plugin.** Manage font families with multiple variants (weight, style). Upload TTF, OTF, WOFF, or WOFF2 files per variant, preview them inline, and reorder or remove individual variants.
+- **Notes plugin.** Attach notes to any entity across the app. Notes support markdown body, tags, color coding, and pinning. A compact Notes section appears on every entity's detail page showing a preview of the pinned or latest note.
+- **Portal doors in the Level Designer.** Doors can now link across two adjacent rooms as portals. When Room A and Room B share a wall, placing a door near the boundary can pair it with the matching wall on the other side. The properties panel shows a Portal section for linking, viewing the linked room, and unlinking. An auto-link setting makes this happen automatically when doors are placed near eligible walls.
+- **Game Jam mode for Project Tracking.** When enabled in project settings, progress calculation treats every tracked item as equal weight (ignoring effort estimates) and items with unknown effort no longer appear in the "needs attention" list.
+
+### Changed
+- **Concept Art gallery** now supports filtering by illustration stage (Rough, Sketch, Line Art, Color, Final) with a multi-select popover filter alongside the search bar, replacing the previous single-value tab filter.
+- **Cutscene list** rebuilt as a sortable table with columns for name, description, status, event count, and last updated — with a multi-select status filter popover.
+- **Project Tracking progress** now reads effort weights and status completion percentages from project settings instead of using fixed defaults.
+- **Sidebar** no longer wraps plugin sections in an extra collapsible group — sections sit directly at the top level.
+- Every plugin across the app now uses theme tokens instead of hardcoded colors, so all UI consistently follows the active theme.
+
+### Removed
+- **Code Explorer** — the file browser and Monaco editor sidebar panel have been removed, along with the Monaco and file-icon dependencies.
+- Internal dead code cleanup across the app.
+
 ## 0.8.5 — 2026-04-16
 
 ### Added
