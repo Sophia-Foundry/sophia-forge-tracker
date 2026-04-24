@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.8.7 — 2026-04-24
+
+### Added
+- New Levels plugin with Tiled map integration, per-level image gallery, active tileset selector, and spritesheet-based rendering
+- New Spritesheets plugin for managing and editing sprite animations
+- New State Machines plugin with a list page and a node-based state machine editor
+- Welcome modal on first launch with language and theme selection plus onboarding info
+- Multi-step Create Project wizard covering name and location, general info, project DNA, game details, and plugin selection, with a project logo uploader and inline per-plugin help while picking plugins
+- Plugin help dialog accessible from plugin sidebars, showing description, audience, and how-to-use guidance
+- Login dialog and Account settings section with editable first name, last name, and alias fields, email display, and sign-out
+- Dedicated Theme settings section
+- Top bar can now optionally display the signed-in user's name or alias
+- Category filter bar with OR/AND query operators on the newly added plugins' list pages
+- Configurable per-project asset folder location
+- Pluggable project settings sections, with Project Tracking exposing effort weights, status completion percentages, and a gamejam mode toggle
+- App now monitors its own memory usage in the background for diagnostics
+
+### Changed
+- Level Designer renamed and reworked into Room Editor — canvas-based floor designer with door placement, minimap overlay, and per-room detail pages; what used to be called "Levels" in that workflow is now "Floors", and rooms live inside floors
+- Settings page reorganized around Account and Theme sections
+- Repo-wide internal refactoring, code formatting pass, test suite reorganization, and lots of bug fixes
+
+### Removed
+- Claude Code integration inside the app
+
 ## 0.8.6 — 2026-04-17
 
 ### Added
