@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.8.8 — 2026-05-06
+
+### Added
+- VFX plugin: a new top-level catalogue for visual effects, organized into groups with tags, status filters, and per-effect detail pages. VFX entries don't hold images themselves — link Concept Art entries to attach reference imagery and they show up in the preview rail automatically.
+- Story endings as first-class entities in the story plugin. Endings appear in their own container on the story canvas and have a summary, free-form unlock conditions, a show-on-canvas toggle, and gating via flag-set / flag-unset relationships. Beats can trigger endings, and endings can require or be required by other endings.
+- Directions plugin: per-plugin design-direction notes accessed from a "Direction" button in the toolbar of any list page (rooms, OST, items, characters, …). The modal opens scoped to that plugin; markdown is supported, and notes attach to the direction itself. Directions are also surfaced to AI agents so AI work agrees with the user's intent.
+- 3D room and wall preview modals on the room editor — orbit-camera 3D scenes for visualizing room geometry, wall profiles, surface treatments, and trim bands without round-tripping through Unreal.
+- Surface treatments and trim bands editors for rooms and walls, with per-room defaults and per-wall overrides.
+- Floor architecture editor for cross-floor concerns (default trims, default surface treatments) shared across the floors of a project.
+- Glass walls and arched-shape doors in the room editor.
+- Columns, windows, and post-it notes as floor-canvas entities — drawn directly on the floor canvas alongside walls and doors, with their own properties panels.
+- Wall cascade tools: split, merge, and an "engulf" modal when one wall absorbs another, with lineage tracked across the change.
+- Status-bar toggle for portal-arrow visibility on the floor canvas — flip between always-visible and mouseover-only without leaving the canvas.
+- Rich update-available modal showing version, what's new, and Update now / Update on next launch / Skip this version / Remind me later actions, plus background-download toasts and a Restart-and-install prompt when the update is ready.
+- Backend health banner that surfaces when the backend disconnects, with Reconnecting / Stopped-responding states and Restart app / Quit actions.
+- Project integrity modal: when a project's project file is missing settings or unreadable, the app explains the issue and offers Fix and continue (writes safe defaults) or Close project.
+- "Merge geometry into single mesh per wall" option in the UE5 room export dialog — bakes walls + trim bands + surface treatments into one actor per wall for fewer draw calls.
+- Categories tab on the floors, ambience, and rooms list pages.
+- Project-settings toggles for ambience, OST, SFX-group, VFX-group, voice-actor, and state-machine category templates.
+- Native clipboard read/write bridge for renderer features that need real OS clipboard access.
+
+### Changed
+- Color picker now opens with the RGBA tab active by default (order: RGBA, hex, LCH).
+- Outline and ghost buttons share a unified accent-bordered transparent style across the app.
+- Constellation overhaul: procedural twinkling starfield background, softer halos on nodes, tooltip card now stays mounted through its exit animation, and additional entity-type colors for VFX, VFX groups, ambience, spritesheets, state machines, and fonts. Snapshots no longer include non-trackable entity types.
+
+### Fixed
+- Wall edits surface clearer error messages when an update, split, or merge can't complete.
+- Door placement and validation rewritten end-to-end: arched and standard doors are correctly clamped to their host wall, portal partners stay in sync across floors, and orphaned partner references are cleaned up when a wall is split, merged, or engulfed.
+- Wall corner geometry is more reliable at acute and obtuse junctions — interior normals, fillets, and surface-treatment seams line up where adjacent walls meet.
+- Wall extents are preserved correctly when a wall is reshaped or its lineage changes, so trim bands and surface treatments no longer drift off the wall after a split or merge.
+
 ## 0.8.7 — 2026-04-24
 
 ### Added
