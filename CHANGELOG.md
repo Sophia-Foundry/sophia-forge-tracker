@@ -1,5 +1,42 @@
 # Changelog
 
+## 0.8.9 — 2026-05-15
+
+### Added
+- Cutscenes: link characters, items, and other entities as their own lanes on a cutscene's timeline, then create events directly on the entity lane. Lanes can be reordered by drag and removed inline; each lane has a "+" button that spawns an event at the next free slot, and the timeline edge-pans automatically while dragging near the container edges.
+- Dialogues: speakers can now be linked to entities (typically characters, but anything linked to the dialogue from the metadata panel) via a picker, in addition to the existing freeform speaker label.
+- Category templates on Cutscenes, Dialogues, Lore Codex, Meshes, and Textures — Categories tab on each list page and a category filter in the popover. New toggles in plugin settings to enable or disable category templates for floors, rooms, spritesheets, cutscenes, dialogues, Lore Codex, meshes, and textures.
+- Spritesheets: slicing-mode filter in the list filter popover.
+- Top bar: Documentation entry in the Help menu.
+- Settings: plugin cards collapse to title + tags by default, expand on click to show description and per-plugin configuration.
+
+### Changed
+- Cutscenes — event types collapse to Camera, Action, Transition, Custom, and Entity. The standalone dialogue / sfx / ost / flag / item / narration / character / voice over / file event types are gone — those events are now created directly on an entity lane and resolve to the linked entity automatically.
+- Cutscenes — the metadata panel is now an inline section on the editor page rather than a separate side sheet.
+- Top bar — the "About" menu is now "Help" (still hosts the About entry, plus the new Documentation entry).
+- Settings — "Directions" and "Notes" plugins are grouped under the Infrastructure category (previously Project).
+- MCP server — every project now has its own bearer token (written to `.sophia/mcp.json` and `.mcp.json`), the HTTP server only answers requests with a localhost host header, CORS is narrowed, and the OAuth discovery paths return a clear pointer to the bearer-token mechanism instead of an opaque "Not Found".
+
+### Fixed
+- Room editor — Fixed a bug that blocked snapping a door precisely to Left / Center / Right of its wall, with a clear "No room on this wall for that position" message when it doesn't fit.
+- Room editor — Fixed a bug that blocked filleting a corner into a curved wall with an adjustable radius.
+- Room editor — Fixed a bug that blocked drag-erasing multiple walls at once with a rectangle.
+- Room editor — Fixed a bug where mirror-door pairs didn't render as one continuous wall-spanning shape, and where pairing required two manual steps; the action is now one click and bidirectionally links both ends.
+- Room editor — Fixed a bug that blocked configuring thresholds (bridge plates at doorways), skirting transitions (flat / ramped / beveled material-change lines), raised platforms, and inlays in the floor architecture editor.
+- UE5 export — Fixed a bug where tweaking a single trim (e.g., chair rail) rebuilt the whole wall; incremental sync now only respawns the actors whose specs actually changed.
+- UE5 export — Fixed a bug where surface treatments and trim bands missed end caps and divider walls with both sides exposed; they now emit on every exposed face with mitred extrusion ends and full pattern coverage.
+- UE5 export — Fixed a bug that blocked exporting a room's free-standing and wall-attached columns.
+- UE5 export — Fixed a bug that blocked configuring the World Outliner folder separately from the placement folder; subfolders for Trims, Surfaces, Windows, Thresholds, Skirting, Platforms, Inlays, and Columns now nest under their parents (plus an optional "Add to level gen" root prefix).
+- UE5 export — Fixed a bug where choosing no material for a wall or floor overwrote the existing actor's material with the project default; the existing material is now left alone.
+- UE5 asset registration — Fixed a bug where child textures pulled in alongside a material import cluttered the asset list; they're now hidden on creation (pre-existing textures are left alone).
+- Status bar — Fixed the portal-arrow visibility toggle showing up on every page; it now lives in the floor canvas's own status bar and only appears while a floor is open.
+- Palette window — Fixed the secondary palette window flashing the bare dark defaults before mounting; it now inherits the active theme on open.
+- Multiple bugfixes to the Room editor, Cutscenes, and Dialogues plugins.
+
+### Removed
+- The old cutscene "Resolve reference" popover and "Unresolved events" section. Events resolve to their entity automatically by virtue of sitting on an entity lane.
+- Column orders other than Square pier and Round shaft are temporarily hidden (Doric, Tuscan, Ionic, Composite, Corinthian, Engaged, Asian post, Cluster, Solomonic) and will return when their geometry is finalized.
+
 ## 0.8.8 — 2026-05-06
 
 ### Added
