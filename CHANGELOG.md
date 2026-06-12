@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.8.10 — 2026-06-12
+
+### Added
+- **Toolbox Mode.** Creating a new project now opens with a choice between **Toolbox mode** — a stripped-down setup that hides the studio name, logo, Project DNA, and Game Details — and the full **Project Workstation**. You can switch modes at any time from the project's General Info settings.
+- **Updates to the state machine editor.** States can now be marked Implemented, Planned, or Drift, each shown with its own icon on the state node; transitions can be made bidirectional, drawn with an arrowhead at each end; and the state nodes get refreshed sizing and spacing.
+- **Reorder game systems.** In the Systems tree you can now move a system up or down within its group, nest it under another system as a subsystem, or move it back to the top level.
+- **MCP server authentication options.** Each project's MCP Server settings now let you choose whether AI clients must present an auth token to connect, and whether the token and port stay stable across launches or are regenerated each session.
+- **Customize MCP port.** You can now customize the port the MCP server uses — set a default base port for new projects in App Settings, and override it per project.
+
+### Fixed
+- **Automatic recovery from a damaged local cache.** If a project's local cache becomes corrupted, the app now detects it, rebuilds the cache from your project files, and retries the request — so you see your data instead of an error.
+- **Plugin settings no longer leak into standalone sections.** A leftover from earlier code caused some plugin settings to show up in separate standalone sections; each plugin's settings now live only inside its own card on the project Plugins settings page.
+- Fixed a label collision in the room preview where the floor surface and the floor level showed the same label.
+- Clarified the help text for inheriting a room's default trims.
+
+### Changed
+- Reviewed and expanded translations across all 11 supported languages, including visual-effects, status-filter, and several dialog and banner strings.
+- Reworded the MCP server authentication and base-port setting descriptions for clarity.
+- Bug-tracker items shown on the dashboard board now carry a "Bug" tag.
+
 ## 0.8.9 — 2026-05-15
 
 ### Added
