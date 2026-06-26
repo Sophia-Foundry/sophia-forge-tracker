@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.8.11 — 2026-06-26
+
+### Added
+- **Passwordless sign-in with two-factor authentication.** Signing in to your cloud account now uses a one-time code emailed to you instead of a password. If you've enabled two-factor authentication, you're prompted for an authenticator code (or a backup code) after entering the email code.
+- **Semantic Retrieval (new optional plugin).** Adds local, embedding-based semantic search over a project's entities through a local Ollama endpoint. Once enabled and pointed at a running Ollama model, AI assistants can find entities by meaning rather than keywords, surface entities related to a given one, and gather an entity's links and semantically-similar neighbours together before working on it. Off by default; enable it and set the endpoint and embedding model in plugin settings.
+- **Project-wide notes search for AI assistants.** AI assistants can now search across all of a project's notes at once — by free text, tag (for example, to pull the decision log), entity type, pinned status, or last-updated date — instead of only listing notes one entity at a time. A matching project-wide notes view is also reachable by URL.
+- **Skills for AI assistants.** Plugins can now contribute named playbooks ("skills") that AI assistants can discover and run for evaluative or operational tasks. The first one densifies the game systems link graph. A new MCP server setting toggles whether skills are exposed, per project.
+- **On-demand tool loading for AI assistants.** Connections from AI assistants now start with a small core set of tools and load each plugin's tools only when needed, keeping the assistant focused. New per-project settings control which plugins load on connect and whether to remember the last activated set across connections.
+- **Find weakly-connected entities.** AI assistants can list entities with few or no links, to help fill in the relationship graph.
+
+### Changed
+- **AI assistants see real project settings.** When an assistant asks about the current project, it now receives the project's actual configured details (engine, project DNA, game details) rather than a thin summary — and these respect toolbox mode, so any fields hidden by toolbox mode stay hidden from assistants too.
+- **Bulk actions for AI assistants.** A single bulk action now runs any create or update tool over many items, replacing the previous per-type bulk tools.
+- **MCP server connection.** The built-in MCP server (used to connect AI assistants such as Claude Code and Cursor) now communicates over an updated connection protocol. The generated client configuration is refreshed automatically; if you connected a client by hand, update it to the new connection details.
+
+### Fixed
+- **UE5 integration detection.** Whether a project advertises UE5 integration tools now correctly follows whether the UE5 plugin is enabled rather than the engine metadata field, so it no longer reports the wrong availability in toolbox mode or when the engine field and the plugin disagree.
+- **Directions dialog could hide its own content.** For long direction notes (and their attached notes), the plugin Directions dialog blocked the view without a way to reach everything; it's now larger and scrolls so all content is accessible.
+- **Toolbox-mode projects no longer store hidden fields.** Creating a project in toolbox mode no longer saves engine, project DNA, or game-details values you were never shown — including when switching back to mode selection partway through project creation.
+- **Version reporting.** The built-in MCP server now reports the app's real version instead of a placeholder.
+
 ## 0.8.10 — 2026-06-12
 
 ### Added
